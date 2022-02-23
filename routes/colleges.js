@@ -21,5 +21,23 @@ router.post('/', async (req, res) => {
         }
         
 })
-
+router.get('/', async(req, res) => {
+    try {
+        const collegeD = await College.find()
+        res.json(collegeD)
+        // console.log(collegeD[0].toObject().name)
+        // const outD = collegeD.map(Cname => Cname.name)
+        // console.log(outD) 
+    } catch(err) {
+        console.log('Error ' + err)
+    }
+})
+router.get('/:city', async(req, res) => {
+    try {
+        const collegeD = await College.find({"city": req.params.city})
+        res.json(collegeD)
+    } catch(err) {
+        console.log('Error ' + err)
+    }
+})
 module.exports = router
