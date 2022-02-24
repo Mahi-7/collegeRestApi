@@ -5,6 +5,10 @@ const collegeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    campus_name: {
+        type: String,
+        required: true
+    },
     city: {
         type: String,
         required: true
@@ -13,7 +17,7 @@ const collegeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    fees: Fee.schema,
+    // fees: Fee.schema,
     // admission,
     // contact,
     // hostel,
