@@ -35,36 +35,37 @@ router.get("/", async (req, res) => {
       console.log("Error " + err);
     }
   });
-router.get("/all/:city", async (req, res) => {
+router.get("/campus/:campus", async (req, res) => {
+    try {
+      const collegeD = await College.find({"campus": req.params.campus});
+      res.json(collegeD);
+    } catch (err) {
+      console.log("Error " + err);
+    }
+  });
+router.get("/city/:city", async (req, res) => {
   try {
-    const collegeD = await College.find({ city: req.params.city });
+    const collegeD = await College.find({ "city": req.params.city });
     res.json(collegeD);
   } catch (err) {
     console.log("Error " + err);
   }
 });
-router.get("/all/:campus_name", async (req, res) => {
-    try {
-      const collegeD = await College.find({ campus_name: req.params.campus_name });
-      res.json(collegeD);
-    } catch (err) {
-      console.log("Error " + err);
-    }
-  });
-  router.get("/all/:name", async (req, res) => {
-    try {
-      const collegeD = await College.find({ name: req.params.name });
-      res.json(collegeD);
-    } catch (err) {
-      console.log("Error " + err);
-    }
-  });
-  router.get("/all/:state", async (req, res) => {
-    try {
-      const collegeD = await College.find({ state: req.params.state });
-      res.json(collegeD);
-    } catch (err) {
-      console.log("Error " + err);
-    }
-  });
+
+router.get("/cname/:name", async (req, res) => {
+  try {
+    const collegeD = await College.find({ name: req.params.name });
+    res.json(collegeD);
+  } catch (err) {
+    console.log("Error " + err);
+  }
+});
+router.get("/state/:state", async (req, res) => {
+  try {
+    const collegeD = await College.find({ state: req.params.state });
+    res.json(collegeD);
+  } catch (err) {
+    console.log("Error " + err);
+  }
+});
 module.exports = router;

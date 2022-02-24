@@ -5,7 +5,7 @@ const collegeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    campus_name: {
+    campus: {
         type: String,
         required: true
     },
